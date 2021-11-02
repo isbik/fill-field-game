@@ -43,8 +43,7 @@ a {
 }
 .cell {
   display: flex;
-  width: 45px;
-  height: 45px;
+  aspect-ratio: 1;
   background: #4c4e50;
   align-items: center;
   justify-content: center;
@@ -55,21 +54,27 @@ a {
 .highlight {
   background-color: #41c37e !important;
 }
+.player {
+  opacity: 0.3;
+}
 
-.first {
+.player.active {
+  opacity: 1;
+}
+
+.player:nth-child(1), .first {
   background-color: #4787ff !important;
   
 }
-
-.second{
+.player:nth-child(2), .second{
   background-color: #d1cb59 !important;
 }
 
-.third{
+.player:nth-child(3), .third{
   background-color: #ff64f2 !important;
   
 }
-.fourth{
+.player:nth-child(4), .fourth{
   background-color: #64faff !important;
 }
 
@@ -113,20 +118,28 @@ a {
   gap: 5px;
 }
 
-.roll-number{
+.roll-number, .close{
   display: flex;
   justify-content: center;
   align-items: center;
   font-weight: bold;
   font-size: 24px;
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 10px;
   background-color: #4d545a;
 }
-.passing {
+
+.passing, .close {
   width: auto;
   padding: 0 20px;
+  background-color: #c74f4f;
+}
+.close {
+  cursor: pointer;
+  background-color:#212325;
+}
+.close:hover {
   background-color: #c74f4f;
 }
 
@@ -135,9 +148,4 @@ a {
   border-radius: 10px;
   background-color: #4d545a;
   
-}
-
-.player.active{
-  background-color: #08ff69;
-  color: #4d545a;
 }

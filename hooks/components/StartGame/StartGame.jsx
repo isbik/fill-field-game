@@ -4,7 +4,7 @@ import styles from "./StartGame.module.scss";
 
 const StartGame = (props) => {
   const [players, setPlayers] = useState(2);
-  const [size, setSize] = useState(10);
+  const [size, setSize] = useState(15);
   return (
     <div className={styles.wrapper}>
       <div className={styles.card}>
@@ -29,12 +29,6 @@ const StartGame = (props) => {
         <p>Размер поля</p>
         <div style={{ display: "flex" }}>
           <div
-            onClick={() => setSize(10)}
-            className={clsx(styles.item, { [styles.active]: size === 10 })}
-          >
-            10
-          </div>
-          <div
             onClick={() => setSize(15)}
             className={clsx(styles.item, { [styles.active]: size === 15 })}
           >
@@ -57,6 +51,23 @@ const StartGame = (props) => {
         <button onClick={() => props.onStart({ size, players })}>
           Начать игру
         </button>
+        <div className={styles.rules}>
+          <p>Правила игры</p>
+
+          <div className={styles.rulesDescription}>
+            <ul>
+              <li>Необходимо захватить как можно большую область</li>
+              <li>Если нет возможности сделать ход, то он пропускается</li>
+              <li>
+                В таком случае игрок занимает случайную позицию территории
+                находящийся рядом с ним
+              </li>
+              <li>
+                Игра продолжается до тех пор, пока все поле не будет заполнено
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
